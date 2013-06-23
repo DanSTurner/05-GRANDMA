@@ -18,7 +18,14 @@ describe 'Grandma' do
     @gm.grandma('UPPERCASE')[-1].should eq '!'
   end
 
-  it 'should return year between 1930 and 1950 at the end of response to all CAPS' do
+  it 'should return year 1930 or greater at the end of response to all CAPS' do
   @gm.grandma('UPPERCASE')[/\d+/].to_i.should be >= 1930
   end
+
+  it 'should return year 1950 or less at the end of response to all CAPS' do
+  @gm.grandma('UPPERCASE')[/\d+/].to_i.should be <= 1950
+  end
+
+  # there's got to be a way to make those last 4 tests into one test
+
 end
